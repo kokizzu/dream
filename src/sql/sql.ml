@@ -1,5 +1,5 @@
 (* This file is part of Dream, released under the MIT license. See LICENSE.md
-   for details, or visit https://github.com/aantron/dream.
+   for details, or visit https://github.com/camlworks/dream.
 
    Copyright 2021 Anton Bachin *)
 
@@ -70,7 +70,7 @@ let sql_pool ?size uri =
    connections, as with caqti-driver-sqlite3, the inner call to Dream.sql cannot
    make progress and request handling deadlocks. This can occur when using SQL
    sessions, a typical scenario. See
-   https://github.com/aantron/dream/issues/332. *)
+   https://github.com/camlworks/dream/issues/332. *)
 let acquired_sql_connection : bool Lwt.key =
   Lwt.new_key ()
 
