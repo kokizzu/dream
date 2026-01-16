@@ -106,11 +106,11 @@ jobs:
     - name: Run quickstart.sh
       shell: bash
       run: |
-        set -x
+        set -xe
         touch output
         tail -f output | grep --line-buffered 'Ctrl' | xargs -L1 -I FOO bash -c "echo Success && touch success && killall middleware.exe" &
         tail -f output &
-        ((curl -fsSL https://raw.githubusercontent.com/camlworks/dream/$GITHUB_SHA/example/quickstart.sh | bash -s $GITHUB_SHA) || true) > output 2>&1
+        (curl -fsSL https://raw.githubusercontent.com/camlworks/dream/$GITHUB_SHA/example/quickstart.sh | bash -s $GITHUB_SHA) >output 2>&1
         sleep 1
         if [ -f success ]
         then
